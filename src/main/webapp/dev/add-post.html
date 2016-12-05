@@ -16,7 +16,7 @@
 		$(document).ready(function(){
 			$(".nav,.nav_submenu,.move-bg").movebg({
 				width:120/*滑块的大小*/,
-				extra:20/*额外反弹的距离*/,
+				extra:30/*额外反弹的距离*/,
 				speed:300/*滑块移动的速度*/,
 				rebound_speed:400/*滑块反弹的速度*/
 			});
@@ -32,7 +32,6 @@
 				$(this).children(".nav_submenu").hide();
 			});
 		});
-		
 	</script>
 	<!--[if IE 6]>
 		<style type="text/css">
@@ -52,7 +51,7 @@
 	<!-- 导航 -->
 	<div class="nav_nav1" id="fixed">
 		<div class="nav_nav">
-			<div class="nav">
+			<div class="nav" id="fixed">
 		        <ul class="nav_list">
 		            <li class="nav-item cur"><a href="index.html">网站首页</a></li>
 		            <li class="nav-item"><a href="#">干货分享</a></li>
@@ -101,49 +100,47 @@
 
 		<!-- 左 -->
 		<div class="content_left">
-
-			<div class="arc_list">
-				<h1><a href="arc_info.html" title="">85微商城双旦活动设计源文件及H5页面</a></h1>
-				<span>作者：<a href="search.html">骆一鸣</a>   时间：2015年1月27日</span>
-				<div><img src="images/photo.jpg"></div>
-				<p>本站的各项电子服务的所有权和运作权归本站。本站提供的服务将完全按照其发布的服务条款和操作规则严格执行。您同意所有本站发布的服务条款和操作规则的约定</p>
-				<button><a href="arc_info.html">查看更多</a></button>
-			</div>
-
-			<div class="arc_list">
-				<h1><a href="arc_info.html" title="">85微商城双旦活动设计源文件及H5页面</a></h1>
-				<span>作者：<a href="search.html">骆一鸣</a>   时间：2015年1月27日</span>
-				<div>
-					<div class="down_link">
-						<h2>下载地址：</h2>
-						<p><a href="#">MY SQL中文版下载地址（1月27日更新）</a></p>
-					</div>
+			
+			<div class="post">
+				<div class="title">
+					<h2>发新帖</h2>
 				</div>
-				<p>本站的各项电子服务的所有权和运作权归本站。本站提供的服务将完全按照其发布的服务条款和操作规则严格执行。您同意所有本站发布的服务条款和操作规则的约定</p>
-				<button><a href="arc_info.html">查看更多</a></button>
-			</div>
-
-			<div class="arc_list">
-				<h1><a href="arc_info.html" title="">85微商城双旦活动设计源文件及H5页面</a></h1>
-				<span>作者：<a href="search.html">骆一鸣</a>   时间：2015年1月27日</span>
-				<div></div>
-				<p>本站的各项电子服务的所有权和运作权归本站。本站提供的服务将完全按照其发布的服务条款和操作规则严格执行。您同意所有本站发布的服务条款和操作规则的约定</p>
-				<button><a href="arc_info.html">查看更多</a></button>
-			</div>
-	
-			<div class="pagelist">
-				<ul>
-					<li><a href="#" title="首页">首页</a></li>
-					<li><a href="#" title="上一页"><i class="iconfont icon-iconfonti2-copy"></i></a></li>
-					<li class="cur"><a href="#" title="1">1</a></li>
-					<li><a href="#" title="2">2</a></li>
-					<li><a href="#" title="3">3</a></li>
-					<li><a href="#" title="4">4</a></li>
-					<li><a href="#" title="5">5</a></li>
-					<li><a href="#" title="更多">...</a></li>
-					<li><a href="#" title="下一页"><i class="iconfont icon-iconfonti2"></i></a></li>
-					<li><a href="#" title="尾页">尾页</a></li>
-				</ul>
+				<table>
+					<tr>
+						<td width="10%" style="white-space:nowrap;">标题：</td>
+						<td>
+							<select>
+								<option>请选择分类</option>
+								<option>分类</option>
+								<option>分类</option>
+							</select>
+							<input type="text" placeholder="请输入标题" >
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td><a href="#"><i class="iconfont icon-toupiaotie"></i> 添加投票</a></td>
+					</tr>
+					<tr>
+						<td style="white-space:nowrap;">内容：</td>
+						<td>
+							<!-- 加载编辑器的容器 -->
+						    <script id="container" name="content" type="text/plain">请输入问题</script>
+						    <!-- 配置文件 -->
+						    <script type="text/javascript" src="ueditor/ueditor.config.js"></script>
+						    <!-- 编辑器源码文件 -->
+						    <script type="text/javascript" src="ueditor/ueditor.all.js"></script>
+						    <!-- 实例化编辑器 -->
+						    <script type="text/javascript">
+						        var ue = UE.getEditor('container');
+						    </script>
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td><a href="#"><button>提交</button></a></td>
+					</tr>
+				</table>
 			</div>
 
 		</div>
@@ -269,7 +266,7 @@
 	
 	<!-- 返回顶部 -->
 	<script type="text/javascript" src="js/backtop.js"></script>
-	<script   type="text/javascript" src="js/tag.js"></script>
+	<script type="text/javascript" src="js/tag.js"></script>
 	<!-- 导航跟随固定 --> 
 	<script type="text/javascript">
 		var offs=$('#fixed').offset();
