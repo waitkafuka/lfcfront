@@ -29,7 +29,7 @@ $(document).ready(function () {
         var state = data.state;
         console.log(state);
         if(state === 0) {
-          alert("登录成功");
+          location.href = "../post/index.html";
         }else if(state === 1){
           alert("用户名或密码错误");
         }else if(state === -1){
