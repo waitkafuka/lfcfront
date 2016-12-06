@@ -12,7 +12,10 @@ $(document).ready(function(){
 			alert("用户名不能为空！");
 		}else{
 			$.ajax({
-			    url: 'http://localhost:8080/lfcfront/regist',
+			    url: 'http://localhost:8080/lfcfront/checkUser',
+			    data:{
+			    	username:userName
+			    },
 			    dataType:'json'
 			    }).done(function(data, status, xhr){
 			    //console.log(data.state);

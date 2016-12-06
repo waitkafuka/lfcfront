@@ -53,9 +53,9 @@ $(function() {
 
 				for (var i = 0; i < dataArr.length; i++) {
 					console.log(i);
-					createDiv(dataArr[i].postId, dataArr[i].title,
+					createDiv(dataArr[i].id, dataArr[i].title,
 							dataArr[i].tag, dataArr[i].content,
-							dataArr[i].author, dataArr[i].time, dataArr[i].id);
+							dataArr[i].author, dataArr[i].time);
 				}
 				var cents = $('<div class="pagelist"><ul></ul></div>');
 				$(".content_left").append(cents);
@@ -70,7 +70,7 @@ $(function() {
 
 	//			
 	// 创建列表项
-	function createDiv(postId, title, tag, content, author, time, id) {
+	function createDiv(id, title, tag, content, author, time) {
 		var strings = /<img[^>]+>/g;// 匹配img标签
 		var str = content.match(strings);// 返回匹配的img（是个数组）
 		var truecontents = content;// 去除img标签后的内容
@@ -85,8 +85,8 @@ $(function() {
 			var stre = "";// 包裹img的div内容
 		}
 		var html = $('<div class="arc_list" postId='
-				+ postId
-				+ '><h1><a href="arc_info.html" title="">'
+				+ id
+				+ '><h1><a href="arc_info.html?id='+id+'" title="">'
 				+ title
 				+ '</a></h1><span>作者：<a href="search.html">'
 				+ author

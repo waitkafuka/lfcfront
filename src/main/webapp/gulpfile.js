@@ -61,11 +61,11 @@ gulp.task('openbrowser', function() {
     opn( 'http://' + config.localserver.host + ':' + config.localserver.port );
 });
 
-//将相关项目文件复制到build 文件夹下
+//将相关项目文件复制到dist文件夹下
 gulp.task('copy', function() {
     //根目录文件
-    gulp.src('./dev/images/*')
-        .pipe(gulp.dest('./dist/images'));
+    gulp.src('./dev/img/*')
+        .pipe(gulp.dest('./dist/img'));
     gulp.src('./dev/data/**/*')
         .pipe(gulp.dest('./dist/data'));
     gulp.src('./dev/font/**/*')
@@ -87,11 +87,15 @@ gulp.task('watch', function () {
         });
     });
 });
+
+gulp.task('develop',function(){
+	
+});
 //默认任务
 gulp.task('default', function(){
     console.log('Starting Gulp tasks, enjoy coding!');
     gulp.run('watch');
-    gulp.run('webserver');
+//    gulp.run('webserver');//启动服务器作为可选项目
     // gulp.run('openbrowser');
 });
 //打包
