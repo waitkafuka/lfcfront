@@ -25,8 +25,8 @@ $(document).ready(function(){
 	var template1 = Handlebars.compile(sour1);
 	//Ajax获取mock模拟数据.
 	var param = {
-		postId:192
-	}
+		id:$.getParameter("id")
+	};
 	$.ajax({
 		type:"post",
 		url:"http://localhost:8080/lfcfront/postDetail",

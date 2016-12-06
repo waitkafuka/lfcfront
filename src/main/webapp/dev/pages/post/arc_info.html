@@ -88,7 +88,7 @@
 								</dd>
 							</dl>
 						</div></li>
-					<li class="nav-item"><a href="#">发帖</a></li>
+					<li class="nav-item"><a href="addPost.html">发帖</a></li>
 				</ul>
 				<!--移动的滑动-->
 				<div class="move-bg"></div>
@@ -289,25 +289,19 @@
 
 	<!--改用handbars模板添加动态数据,固定内容暂时没有做处理-->
 	<script id="handle" type="text/x-handlebars-template">
-		<h1><a href="#" title=""></a>{{postId.title}}</h1>
-		<span>作者：<a href="search.html">{{postId.author}}</a>&nbsp;<i style="font-style: normal;">{{time}}</i></span>
-		<div><img src="../images/photo.jpg"></div>
-		<p>{{postId.content}}</p>
-		<p>{{postId.content}}</p>
-		<p>{{postId.content}}</p>
-		<p>{{postId.content}}</p>
-		<p>{{postId.content}}</p>
-		<p>{{postId.content}}</p>
-		<p>{{postId.content}}</p>
+		<h1><a href="#" title=""></a>{{title}}</h1>
+		<span>作者：<a href="search.html">{{author}}</a>&nbsp;<i style="font-style: normal;">{{time}}</i></span>
+		<div><img src="../../img/photo.jpg"></div>
+		<p>{{content}}</p>
 	</script>
 	<script id="handle1" type="text/x-handlebars-template">
-			<a href="#"><img src="../images/author.png"></a>
-			{{#with postId.comments}}
-				{{#with this.commentsList}}
+			<a href="#"><img src="../../img/author.png"></a>
+			{{#with comments}}
+				{{#with commentsList}}
 					{{#each this}}
 						<div class="author_info">
-							<span><a href="search.html">{{this.c_author}}</a></span>
-							<p>{{this.comment}}</p>
+							<span><a href="search.html">{{c_author}}</a></span>
+							<p>{{comment}}</p>
 						</div>
 					{{/each}}
 				{{/with}}
@@ -317,7 +311,8 @@
 	<script src="../../js/lib/jquery.movebg.js"></script>
 	<script src="../../js/lib/handlebars.js"></script>
 	<script src="../../js/lib/mock.js"></script>
-	<script src="../../js/arcinfo.js"></script>
+	<script src="../../js/common/global.js"></script>
+	<script src="../../js/post/arcinfo.js"></script>
 <!-- 返回顶部 -->
 	<script type="text/javascript" src="../../js/lib/backtop.js"></script>
 	<!-- 导航跟随固定 -->

@@ -1,9 +1,10 @@
 $(document).ready(function() {
 	$(".nav,.nav_submenu,.move-bg").movebg({
-		width: 120 /*滑块的大小*/ ,
-		extra: 20 /*额外反弹的距离*/ ,
-		speed: 300 /*滑块移动的速度*/ ,
-		rebound_speed: 400 /*滑块反弹的速度*/
+		width : 120 /* 滑块的大小 */,
+		extra : 20 /* 额外反弹的距离 */,
+		speed : 300 /* 滑块移动的速度 */,
+		rebound_speed : 400
+	/* 滑块反弹的速度 */
 	});
 	// 导航点击切换
 	$(".nav_list li").click(function() {
@@ -20,4 +21,16 @@ $(document).ready(function() {
 	$(".header,.content").hover(function() {
 		$(".nav_submenu").hide();
 	})
+	$.extend({
+		/**
+		 * 从URL中获取参数值
+		 */
+		getParameter : function(name) {
+			var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+			var r = window.location.search.substr(1).match(reg);
+			if (r != null)
+				return unescape(r[2]);
+			return null;
+		}
+	});
 });

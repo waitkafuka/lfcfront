@@ -1,0 +1,1 @@
+2016-12-06 17:57:35  [ com.alibaba.druid.pool.DruidDataSource.validationQueryCheck(DruidDataSource.java:560):com.alibaba.druid.pool.DruidDataSource:main:2296 ] - [ ERROR ]  testOnBorrow is true, validationQuery not set
