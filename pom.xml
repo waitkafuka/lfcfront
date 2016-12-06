@@ -2,7 +2,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>lfcfront</groupId>
-	<artifactId>knowledge</artifactId>
+	<artifactId>lfcfront</artifactId>
 	<packaging>war</packaging> 
 	<version>1.0</version>
 	<properties>
@@ -183,6 +183,20 @@
 	                <webXml>src/main/webapp/WEB-INF/web.xml</webXml>
 	            </configuration>
 	        </plugin>
+	        <plugin>
+				<groupId>org.mortbay.jetty</groupId>
+				<artifactId>maven-jetty-plugin</artifactId>
+				<version>6.0.0</version>
+				<configuration>
+					<contextPath>/lfcfront</contextPath>
+					<scanIntervalSeconds>300</scanIntervalSeconds>
+					<connectors>
+						<connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
+							<port>8080</port>
+						</connector>
+					</connectors>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 </project>
