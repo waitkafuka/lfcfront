@@ -12,6 +12,7 @@
 	<link rel="stylesheet" type="text/css" href="../iconfont/iconfont.css">
 	<script type="text/javascript" src="../js/jquery.min.js"></script>
 	<script src="../js/jquery.movebg.js"></script>
+	<script src="../js/lib/handlebars.js"></script>
 	<script src="../js/lib/mock.js"></script>
 	<script src="../js/arcinfo.js"></script>
 	<script type="text/javascript">
@@ -98,21 +99,10 @@
 	
 	<!-- 内容 -->
 	<div class="content">
-
 		<!-- 左 -->
 		<div class="content_left">
 			<!--文章详情部分-->
 			<div class="arc_list">
-				<h1><a href="#" title=""></a></h1>
-				<span>作者：<a href="search.html"></a>&nbsp;<i style="font-style: normal;"></i></span>
-				<div><img src="../images/photo.jpg"></div>
-				<p></p>
-				<p></p>
-				<p></p>
-				<p></p>
-				<p></p>
-				<p></p>
-				<p></p>
 				<!--分享部分-->
 				<div class="bdsharebuttonbox">
 					<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
@@ -127,18 +117,10 @@
 					<a href="#">规则</a>
 					<a href="#">产品和代码</a>
 					<a href="#">各项电子服务</a>
-				</div>
-				
+				</div>	
 			</div>
 			<!--作者信息及其评论-->
-			<div class="author">
-				<a href="#"><img src="../images/author.png"></a>
-				<div class="author_info">
-					<span><a href="search.html">张三先</a></span>
-					<p>当然了，LTS 版本也将消耗更多人力去维护各个版本，而大部分开源软件是做不到的，因此我们就会看到很多开源软件其实都成了“版本帝”。</p>
-				</div>
-			</div>
-
+			<div class="author"></div>
 			<div class="nextPage">
 				<ul>
 					<li>上一篇：<a href="#">有详细的信息被披露出来</a></li>
@@ -284,6 +266,33 @@
 		},"share": {
 		}};
 		with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+	</script>
+	
+	<!--改用handbars模板添加动态数据,固定内容暂时没有做处理-->
+	<script id="handle" type="text/x-handlebars-template">
+		<h1><a href="#" title=""></a>{{postId.title}}</h1>
+		<span>作者：<a href="search.html">{{postId.author}}</a>&nbsp;<i style="font-style: normal;">{{time}}</i></span>
+		<div><img src="../images/photo.jpg"></div>
+		<p>{{postId.content}}</p>
+		<p>{{postId.content}}</p>
+		<p>{{postId.content}}</p>
+		<p>{{postId.content}}</p>
+		<p>{{postId.content}}</p>
+		<p>{{postId.content}}</p>
+		<p>{{postId.content}}</p>
+	</script>
+	<script id="handle1" type="text/x-handlebars-template">
+			<a href="#"><img src="../images/author.png"></a>
+			{{#with postId.comments}}
+				{{#with this.commentsList}}
+					{{#each this}}
+						<div class="author_info">
+							<span><a href="search.html">{{this.c_author}}</a></span>
+							<p>{{this.comment}}</p>
+						</div>
+					{{/each}}
+				{{/with}}
+			{{/with}}
 	</script>
 </body>
 </html>
