@@ -1,5 +1,6 @@
 var gulp = require('gulp'),
     lr = require('tiny-lr'),
+    clean = require('gulp-clean'),
     server = lr(),
     webserver  = require('gulp-webserver'),
     minifycss = require('gulp-minify-css'),
@@ -68,18 +69,18 @@ gulp.task('include',function () {
 //     opn( 'http://' + config.localserver.host + ':' + config.localserver.port );
 // });
 gulp.task('devcopy', function() {
-    gulp.src(['dev/**/*', '!dev/*.html'])
-        .pipe(gulp.dest('release/'));
+    gulp.src(['dev/**/*', '!./dev/pages/**/*'])
+        .pipe(gulp.dest('./release/'));
 
 });
 //将公用资源引用添加至业务html文件中
 gulp.task('include_dev', function() {
-    gulp.src(['dev/*.html','!dev/include/**.html'])
+     gulp.src(['dev/pages/**/*'])
         .pipe(fileinclude({
             prefix: '@@',
             basepath: '@file'
         }))
-        .pipe(gulp.dest('./release'));
+        .pipe(gulp.dest('./release/pages/'));
 });
 ////将相关项目文件复制dist文件夹下
 gulp.task('distcopy', function() {
@@ -96,7 +97,7 @@ gulp.task('watch', function () {
             return console.log(err);
         }
     });
-    gulp.watch('dev/*',['devcopy','include_dev']);
+    gulp.watch('dev/**/*',['devcopy','include_dev']);
     gulp.watch(['dev/*.html','dev/*.css','dev/js/*.js'],  function (e) {
         server.changed({
             body: {
@@ -105,7 +106,20 @@ gulp.task('watch', function () {
         });
     });
 });
+
+//清除release目录
+gulp.task('clean_release', function() {
+  return gulp.src(['./release/'], {
+      read: false
+    })
+    .pipe(clean({
+      force: true
+    }))
+    .pipe(clean());
+});
 //开发式执行的任务
-gulp.task('develop', gulpSequence('devcopy','include_dev','webserver','watch'));
+gulp.task('xxx', gulpSequence('clean_release','devcopy','include_dev','webserver','watch'));
 //开发完成执行的任务
 gulp.task('build',gulpSequence('distcopy','minifycss','uglify','htmlmin'));
+
+
