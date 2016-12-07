@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+@@include('../../include/css.html')
+<link rel="stylesheet" type="text/css"
+	href="../../iconfont/iconfont.css">
+<!--[if IE 6]>
+		<style type="text/css">
+			html{overflow:hidden}
+			body{height:100%;overflow:auto}
+			.nav_fixed{position:absolute;left:0px;}
+		</style>
+	<![endif]-->
+</head>
+<body>
+	@@include('../../include/header.html')
+	<!-- 内容 -->
+	<div class="content">
+		<!-- 左 -->
+		<div class="content_left">
+			<!--文章详情部分-->
+			<div class="arc_list">
+				<!--分享部分-->
+				<div class="bdsharebuttonbox">
+					<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+					<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+					<a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a> <a
+						href="#" class="bds_youdao" data-cmd="youdao" title="分享到有道云笔记"></a>
+					<a href="#" class="bds_fx" data-cmd="fx" title="分享到飞信"></a>
+				</div>
+				<!--标签链接-->
+				<div class="tag">
+					<i class="iconfont icon-biaoqian"></i> <a href="#">规则</a> <a
+						href="#">产品和代码</a> <a href="#">各项电子服务</a>
+				</div>
+			</div>
+			<!--作者信息及其评论-->
+			<div class="author"></div>
+			<div class="nextPage">
+				<ul>
+					<li>上一篇：<a href="#">有详细的信息被披露出来</a></li>
+					<li>下一篇：<a href="#">有详细的信息被披露出来，这必定有详细的信息被披露出来，这必定</a></li>
+				</ul>
+			</div>
+
+		</div>
+
+		<!-- 右 -->
+		<div class="content_right">
+
+			<!-- 动态 -->
+			<div class="news_right">
+				<div class="news_right_title">动态</div>
+				<span></span>
+				<div class="news_right_list">
+					<ul>
+						<li><a href="post_info.html" title="">请问larave权限管理怎么做！在线急等和剂局方回复回复大将风度很久很久好地方</a>
+							<p>
+								<span>武大郎</span>发起了提问
+							</p></li>
+						<li><a href="post_info.html" title="">请问larave权限管理怎么做！在线急等</a>
+							<p>
+								<span>武大郎</span>回复了问题
+							</p></li>
+						<li><a href="post_info.html" title="">请问larave权限管理怎么做！在线急等</a>
+							<p>
+								<span>武大郎</span>发起了提问
+							</p></li>
+						<li><a href="post_info.html" title="">请问larave权限管理怎么做！在线急等</a>
+							<p>
+								<span>武大郎</span>回复了问题
+							</p></li>
+					</ul>
+				</div>
+			</div>
+
+			<!-- 标签 -->
+			<div class="news_right">
+				<div class="news_right_title">标签</div>
+				<span></span>
+				<div class="news_right_list">
+					<dl>
+						<dt></dt>
+						<dd>
+							<a href="#">权限管理</a>
+						</dd>
+						<dd>
+							<a href="#">设计源文件</a>
+						</dd>
+						<dd>
+							<a href="#">权限</a>
+						</dd>
+						<dd>
+							<a href="#">双旦活动</a>
+						</dd>
+						<dd>
+							<a href="#">2015年1月27日</a>
+						</dd>
+						<dd>
+							<a href="#">设计源文件</a>
+						</dd>
+						<dd>
+							<a href="#">权限</a>
+						</dd>
+						<dd>
+							<a href="#">双旦活动</a>
+						</dd>
+						<dd>
+							<a href="#">2015年1月27日</a>
+						</dd>
+					</dl>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<!-- 底部 -->
+	@@include('../../include/footer.html')
+	<!--改用handbars模板添加动态数据,固定内容暂时没有做处理-->
+	<script id="handle" type="text/x-handlebars-template">
+		<h1><a href="#" title=""></a>{{title}}</h1>
+		<span>作者：<a href="search.html">{{author}}</a>&nbsp;<i style="font-style: normal;">{{time}}</i></span>
+		<div><img src="../../img/photo.jpg"></div>
+		<p>{{content}}</p>
+	</script>
+	<script id="handle1" type="text/x-handlebars-template">
+			<a href="#"><img src="../../img/author.png"></a>
+			{{#with comments}}
+				{{#with commentsList}}
+					{{#each this}}
+						<div class="author_info">
+							<span><a href="search.html">{{c_author}}</a></span>
+							<p>{{comment}}</p>
+						</div>
+					{{/each}}
+				{{/with}}
+			{{/with}}
+	</script>
+	@@include('../../include/js.html')
+	<script src="../../js/post/arcinfo.js"></script>
+	<script type="text/javascript" src="../../js/lib/backtop.js"></script>
+	<!-- 导航跟随固定 -->
+	<script type="text/javascript">
+		var offs = $('#fixed').offset();
+		$(window).scroll(function() {
+			scrollLis();
+		});
+		// 分享
+		window._bd_share_config = {
+			"common" : {
+				"bdSnsKey" : {},
+				"bdText" : "",
+				"bdMini" : "2",
+				"bdMiniList" : false,
+				"bdPic" : "",
+				"bdStyle" : "0",
+				"bdSize" : "24"
+			},
+			"share" : {}
+		};
+		with (document)
+			0[(getElementsByTagName('head')[0] || body)
+					.appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='
+					+ ~(-new Date() / 36e5)];
+	</script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$(".nav,.nav_submenu,.move-bg").movebg({
+				width : 120/*滑块的大小*/,
+				extra : 30/*额外反弹的距离*/,
+				speed : 300/*滑块移动的速度*/,
+				rebound_speed : 400
+			/*滑块反弹的速度*/
+			});
+			// 导航点击切换
+			$(".nav_list li").click(function() {
+				$(this).addClass("cur").siblings().removeClass("cur");
+			});
+			// 鼠标经过下拉
+			$(".nav li").mouseover(function() {
+				$(this).children(".nav_submenu").show();
+			});
+			$(".nav li").mouseout(function() {
+				$(this).children(".nav_submenu").hide();
+			});
+		});
+	</script>
+</body>
+</html>
