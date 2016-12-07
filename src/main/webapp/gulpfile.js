@@ -7,6 +7,7 @@ var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
     config     = require('./configs.json'),
     fileinclude = require('gulp-file-include'),
+    gulpSequence = require('gulp-sequence');
     include = require('gulp-file-include');
 
 gulp.task('minifycss',function () {
@@ -105,6 +106,6 @@ gulp.task('watch', function () {
     });
 });
 //开发式执行的任务
-gulp.task('develop',['devcopy','include_dev','webserver','watch']);
+gulp.task('develop', gulpSequence('devcopy','include_dev','webserver','watch'));
 //开发完成执行的任务
-gulp.task('build',['distcopy','minifycss','uglify','htmlmin']);
+gulp.task('build',gulpSequence('distcopy','minifycss','uglify','htmlmin'));
