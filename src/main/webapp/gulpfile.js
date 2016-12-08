@@ -3,13 +3,13 @@ var gulp = require('gulp'),
     clean = require('gulp-clean'),
     server = lr(),
     webserver  = require('gulp-webserver'),
+    connect=require("gulp-connect"),
     minifycss = require('gulp-minify-css'),
     htmlmni = require('gulp-minify-html'),
     uglify = require('gulp-uglify'),
     config     = require('./configs.json'),
     fileinclude = require('gulp-file-include'),
     gulpSequence = require('gulp-sequence');
-    include = require('gulp-file-include');
 
 gulp.task('minifycss',function () {
     gulp.src('release/css/**/*.css')
@@ -37,15 +37,30 @@ gulp.task('htmlmin',function () {
         .pipe(htmlmni(options))
         .pipe(gulp.dest('dist'))
 });
-gulp.task('webserver', function() {
-    gulp.src( './release' )
-        .pipe(webserver({
-            host:             config.localserver.host,
-            port:             config.localserver.port,
-            livereload:       true,
-            directoryListing: false
-        }));
+// gulp.task('webserver', function() {
+//     gulp.src( './release' )
+//         .pipe(webserver({
+//             host:             config.localserver.host,
+//             port:             config.localserver.port,
+//             livereload:       true,
+//             directoryListing: false
+//         }));
+// });
+// 本地服务器 root：文件 port：端口 
+gulp.task('localhost',function(){
+    connect.server({
+        root:"release/",
+        port:8090,
+        livereload:true
+        });
+    gulp.watch("release/**/*.*",['reload']);
 });
+
+// 监听文件实时刷新
+gulp.task('reload',function(){
+    gulp.src("release/**/*.*").pipe(connect.reload());
+});
+
 gulp.task('copy', function() {
     //根目录文件
     gulp.src('./dev/images/*')
@@ -118,7 +133,7 @@ gulp.task('clean_release', function() {
     .pipe(clean());
 });
 //开发式执行的任务
-gulp.task('xxx', gulpSequence('clean_release','devcopy','include_dev','webserver','watch'));
+gulp.task('xxx', gulpSequence('clean_release','devcopy','include_dev','localhost','watch'));
 //开发完成执行的任务
 gulp.task('build',gulpSequence('distcopy','minifycss','uglify','htmlmin'));
 
