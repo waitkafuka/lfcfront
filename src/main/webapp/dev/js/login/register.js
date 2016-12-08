@@ -1,10 +1,4 @@
 $(document).ready(function(){
-	Mock.mock("http://localhost:8080/lfcfront/checkUser",{
-	    'state' : 1
-	});
-	Mock.mock("http://localhost:8080/lfcfront/checkUser",{
-	    'state' : 0
-	});
 	$("#username").blur(function(){
 		//验证是否存在；
 		var userName = $("#username").val();
@@ -12,8 +6,8 @@ $(document).ready(function(){
 			alert("用户名不能为空！");
 		}else{
 			$.ajax({
-			    url: 'http://localhost:8080/lfcfront/checkUser',
-			    data:{
+			    url: 'http://222.88.71.16:8067/lfcfront/checkUser',
+			    data:{ 
 			    	username:userName
 			    },
 			    dataType:'json'
@@ -48,7 +42,7 @@ $(document).ready(function(){
 					paddword : unPassword,
 					code : unCode
 				},
-				url: 'http://localhost:8080/lfcfront/regist',
+				url: 'http://222.88.71.16:8067/lfcfront/regist',
 				dataType : "json"
 			}).done(function(data, status, xhr){
 			    console.log(data.state);
