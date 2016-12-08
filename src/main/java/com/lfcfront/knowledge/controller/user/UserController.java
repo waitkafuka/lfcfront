@@ -1,4 +1,4 @@
-﻿package com.lfcfront.knowledge.controller.user;
+package com.lfcfront.knowledge.controller.user;
 
 import java.awt.Menu;
 import java.util.HashMap;
@@ -116,14 +116,14 @@ public class UserController {
 		String msg = null;
 		int state = 10;
 		if (username != null && password != null && code != null) {
-			if (user == null && sessionCode=.equals(code)) {
+			if (user == null && sessionCode.toLowerCase().equals(code.toLowerCase())) {
 				state = 0;
 				msg = "注册成功！";
 				User newuser = new User();
 				newuser.setUsername(username);
 				newuser.setPassword(password);
 				userService.saveUser(newuser);
-			} else if (user == null && !sessionCode=.equals(code)) {
+			} else if (user == null && !sessionCode.toLowerCase().equals(code.toLowerCase())) {
 				state = 2;
 				msg = "验证码错误！";
 			} else if (user != null) {
