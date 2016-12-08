@@ -9,7 +9,7 @@
   },
   "devDependencies": {
     "browser-sync": "^2.18.2",
-    "gulp": "^3.9.0",
+    "gulp": "^3.9.1",
     "gulp-cache": "^0.3.0",
     "gulp-clean": "^0.3.2",
     "gulp-compass": "^2.0.3",
@@ -33,7 +33,8 @@
     "gulp-webserver": "^0.9.1",
     "gulp.spritesmith": "^4.1.0",
     "imagemin-pngquant": "^4.2.0",
-    "sprity": "^1.0.7"
+    "sprity": "^1.0.7",
+    "tiny-lr": "^1.0.3"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
