@@ -6,6 +6,7 @@ var gulp = require('gulp'),
     minifycss = require('gulp-minify-css'),
     htmlmni = require('gulp-minify-html'),
     uglify = require('gulp-uglify'),
+    connect = require('gulp-connect'),
     config     = require('./configs.json'),
     fileinclude = require('gulp-file-include'),
     gulpSequence = require('gulp-sequence');

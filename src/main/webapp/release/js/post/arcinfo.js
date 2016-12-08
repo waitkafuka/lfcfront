@@ -1,4 +1,4 @@
-//mock模拟数据.
+//mock模拟数据失效.
 /*Mock.mock("http://222.88.71.16:8067/lfcfront/postDetai",{
 	"postId|5":{
 						"title":"陆鹰前端社区文章标题",
