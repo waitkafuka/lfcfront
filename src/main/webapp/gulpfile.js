@@ -6,10 +6,11 @@ var gulp = require('gulp'),
     minifycss = require('gulp-minify-css'),
     htmlmni = require('gulp-minify-html'),
     uglify = require('gulp-uglify'),
+    connect = require('gulp-connect'),
     config     = require('./configs.json'),
     fileinclude = require('gulp-file-include'),
     gulpSequence = require('gulp-sequence');
-    include = require('gulp-file-include');
+
 
 gulp.task('minifycss',function () {
     gulp.src('release/css/**/*.css')
@@ -38,13 +39,10 @@ gulp.task('htmlmin',function () {
         .pipe(gulp.dest('dist'))
 });
 gulp.task('webserver', function() {
-    gulp.src( './release' )
-        .pipe(webserver({
-            host:             config.localserver.host,
-            port:             config.localserver.port,
-            livereload:       true,
-            directoryListing: false
-        }));
+    connect.server({
+        livereload: true,
+        port: 2333
+    });
 });
 gulp.task('copy', function() {
     //根目录文件
@@ -64,10 +62,6 @@ gulp.task('include',function () {
         .pipe(htmlmin(options))
         .pipe(gulp.dest('./dist'));
 })
-//通过浏览器打开本地 Web服务器 路径
-// gulp.task('openbrowser', function() {
-//     opn( 'http://' + config.localserver.host + ':' + config.localserver.port );
-// });
 gulp.task('devcopy', function() {
     gulp.src(['dev/**/*', '!./dev/pages/**/*'])
         .pipe(gulp.dest('./release/'));
