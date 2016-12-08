@@ -9,7 +9,7 @@ $(function() {
 	});
 	$.ajax({
 		type: "get",
-		url: "http://localhost:8080/lfcfront/tagList",
+		url: "http://222.88.71.16:8067/lfcfront/tagList",
 		async: true,
 		dataType: 'json',
 		data: {},

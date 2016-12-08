@@ -21,7 +21,7 @@ $(document).ready(function () {
     else {
       //提交数据给Login.ashx页面处理 
       $.ajax({
-        url: 'http://localhost:8080/lfcfront/login',
+        url: 'http://222.88.71.16:8067/lfcfront/login',
         dataType:'json',
         data:data,
         type:'post'

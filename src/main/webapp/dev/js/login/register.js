@@ -12,7 +12,7 @@ $(document).ready(function(){
 			alert("用户名不能为空！");
 		}else{
 			$.ajax({
-			    url: 'http://localhost:8080/lfcfront/checkUser',
+			    url: 'http://222.88.71.16:8067/lfcfront/checkUser',
 			    data:{
 			    	username:userName
 			    },

@@ -37,7 +37,7 @@ $(function() {
 		pages = targetIndex;
 
 		$.ajax({
-			url : "http://localhost:8080/lfcfront/postList",
+			url : "http://222.88.71.16:8067/lfcfront/postList",
 			dataType : "json",
 			async : true,
 			type : "GET",
@@ -52,7 +52,6 @@ $(function() {
 				var dataArr = jsons.postList;
 
 				for (var i = 0; i < dataArr.length; i++) {
-					console.log(i);
 					createDiv(dataArr[i].id, dataArr[i].title,
 							dataArr[i].tag, dataArr[i].content,
 							dataArr[i].author, dataArr[i].time);
@@ -131,7 +130,7 @@ $(function() {
 						$
 								.ajax({
 									type : "get",
-									url : "http://localhost:8080/lfcfront/delPost",
+									url : "http://222.88.71.16:8067/lfcfront/delPost",
 									dataType : "json",
 									data : {
 										postId : targetId,
@@ -197,7 +196,7 @@ $(function() {
 	function getPageCount(targetIndex, numbers) {
 		$
 				.ajax({
-					url : "http://localhost:8080/lfcfront/postList",
+					url : "http://222.88.71.16:8067/lfcfront/postList",
 					type : "get",
 					dataType : "json",
 					data : {
