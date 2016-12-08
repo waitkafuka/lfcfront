@@ -1,15 +1,8 @@
 $(function() {
-	Mock.mock("http://localhost:8080/lfcfront/tagList", {
-		"totalCount": 1000,
-		"tagList|20": [{
-			"tagName": "@cname",
-			"tagId|198-218": 20
-		}]
-
-	});
+	
 	$.ajax({
-		type: "get",
-		url: "http://localhost:8080/lfcfront/tagList",
+		type: "post",
+		url: "http://222.88.71.16:8067/lfcfront/tagList",
 		async: true,
 		dataType: 'json',
 		data: {},
@@ -23,7 +16,6 @@ $(function() {
 					var oEle = $("<dd><a href='#" + value[i].tagId + "'>" + value[i].tagName + "</a></dd>");
 					$(".news_right_list dl").slice(0, 2).append(oEle);	
 				}
-
 			}
 		}
 	})

@@ -1,0 +1,30 @@
+.nohaveimgp,.haveimgp{    
+    height: 5rem;
+    text-overflow: ellipsis;   
+    overflow: hidden;  
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical; 
+  }
+  .arc_list .posts_time{
+  	color:  #959595;
+  }
+  .pagelist{   
+ 	width: 62.5%;
+  }
+.pagelist a,.pagelist span{
+	background-color: #f43838;
+	opacity: 0.9;
+	padding:0.5em;
+	line-height:2em;
+	margin:0 0.3em;
+	border-radius: 0.2em;
+	color: white;
+}
+.active{
+	background-color: #D43F3A;
+}
+.pagelist a:hover,.pagelist span:hover{
+	background-color:#D43030;
+	opacity: 0.9;
+}
