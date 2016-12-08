@@ -20,6 +20,14 @@
     <servlet-name>springMvc</servlet-name>
     <url-pattern>/*</url-pattern>
   </servlet-mapping>
+    <servlet>
+    <servlet-name>codeServlet</servlet-name>
+    <servlet-class>com.lfcfront.knowledge.common.util.ValidateCodeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>codeServlet</servlet-name>
+    <url-pattern>/servlet/codeServlet</url-pattern>
+  </servlet-mapping>
   <filter>
     <filter-name>SetCharacterEncoding</filter-name>
     <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
