@@ -1,5 +1,5 @@
-//mock模拟数据
-Mock.mock("http://localhost:8080/lfcfront/postDetail",{
+//mock模拟数据失效.
+/*Mock.mock("http://222.88.71.16:8067/lfcfront/postDetai",{
 	"postId|5":{
 						"title":"陆鹰前端社区文章标题",
 						"author":"王飞飞",
@@ -15,10 +15,13 @@ Mock.mock("http://localhost:8080/lfcfront/postDetail",{
 							]
 						}
 					}
-});
+});*/
 //文章详情部分
 $(document).ready(function(){
 	//handlebars解析数据得到回调函数
+	//http://222.88.71.16:8067/lfcfront/login?username=admin&password=123456
+	//http://lfcfront.ngrok.cc/lfcfront/release/pages/post/index.html
+	//222.88
 	var sour1 = $("#arclist").html();
 	var sour2 = $("#author").html()
 	var template1 = Handlebars.compile(sour1);
@@ -29,11 +32,12 @@ $(document).ready(function(){
 	};
 	$.ajax({
 		type:"post",
-		url:"http://localhost:8080/lfcfront/postDetail",
+		url:"http://222.88.71.16:8067/lfcfront/postDetail",
 		data:param,
 		async:true,
 		dataType:"json",
 		success:function(res){
+			console.log(res);
 			if(res){
 				console.log(res);
 				//利用handlebars回调函数解析数据渲染到页面
