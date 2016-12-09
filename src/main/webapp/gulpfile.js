@@ -112,7 +112,7 @@ gulp.task('clean_release', function() {
     .pipe(clean());
 });
 //开发式执行的任务
-gulp.task('xxx', gulpSequence('clean_release','devcopy','include_dev','webserver','watch'));
+gulp.task('develop', gulpSequence('clean_release','devcopy','include_dev','webserver','watch'));
 //开发完成执行的任务
 gulp.task('build',gulpSequence('distcopy','minifycss','uglify','htmlmin'));
 
