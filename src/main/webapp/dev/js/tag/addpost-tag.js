@@ -8,7 +8,7 @@ $(function() {
 		data: {},
 		success: function(data) {
 			if(data) {
-				$(".news_right_list  dl").slice(0,2).html("");
+				$(".news_right_list  dl").slice(0,1).html("");
 				var value = data.tagList;
 				console.log(value.length);
 				for(var i = 0; i < value.length; i++) {

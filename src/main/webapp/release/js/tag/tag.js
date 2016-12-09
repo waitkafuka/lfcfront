@@ -1,7 +1,7 @@
 $(function() {
-	//http://222.88.71.16:8067/lfcfront/login?username=admin&password=123456
+	
 	$.ajax({
-		type: "get",
+		type: "post",
 		url: "http://222.88.71.16:8067/lfcfront/tagList",
 		async: true,
 		dataType: 'json',
@@ -16,7 +16,6 @@ $(function() {
 					var oEle = $("<dd><a href='#" + value[i].tagId + "'>" + value[i].tagName + "</a></dd>");
 					$(".news_right_list dl").slice(0, 2).append(oEle);	
 				}
-
 			}
 		}
 	})
