@@ -6,15 +6,16 @@ $(function() {
     //过滤图片
 	Handlebars.registerHelper('getText',function (content) {
         var strings = /<img[^>]+>/g;// 匹配img标签
-        var str = content.match(strings)[0];// 返回匹配的img（是个数组）取第一个
 		var truecontents = content;// 去除img标签后的内容
         return truecontents;
     });
 	//获得图片地址
     Handlebars.registerHelper('getImg',function (content) {
         var strings = /<img[^>]+>/g;// 匹配img标签
-        var str = content.match(strings)[0];// 返回匹配的img（是个数组）取第一个
-        return str;
+         var str = content.match(strings);// 返回匹配的img（是个数组）取第一个
+        if(str){
+            return str[0];
+        }
     });
 	var pages = 1;// 定义当前是第几页
 	var maxpages = 1;// 记录最大页数
@@ -35,7 +36,6 @@ $(function() {
 			},
 			success : function(jsons) {
 				var postList = jsons.postList;
-
 				var template = Handlebars.compile($('#artList').html());
 				var html = template(postList);
 				$('.arc_list').html(html);
@@ -70,7 +70,7 @@ $(function() {
              var currentIndex = index.getCurrent();
             onloadData(currentIndex,10);
         }
-	})
+	});
 // 	// 首次页面加载进来显示的是第一页数据
 //
 // 	//
@@ -119,11 +119,7 @@ $(function() {
 // 		// });
 // 		// });
 // 	}
-// 	//
-// 	//
-
-
-
+//
 //
 // 	$(document).on("click", ".topPages", function() {
 // 		// console.log(pages);
