@@ -109,19 +109,21 @@ public class UserController {
 	@RequestMapping(value = "regist")
 	public Map<String, Object> regist(HttpServletRequest request,
 			String username, String password,String code,HttpSession session) {
+		String sessionCode="";
+		sessionCode=(String)session.getAttribute("validateCode");
 		User user = userService.queryUserByUsername(username);
 		Map<String, Object> result = new HashMap<String, Object>();
 		String msg = null;
 		int state = 10;
 		if (username != null && password != null && code != null) {
-			if (user == null && "3321".equals(code)) {
+			if (user == null && sessionCode.toLowerCase().equals(code.toLowerCase())) {
 				state = 0;
 				msg = "注册成功！";
 				User newuser = new User();
 				newuser.setUsername(username);
 				newuser.setPassword(password);
 				userService.saveUser(newuser);
-			} else if (user == null && !"3321".equals(code)) {
+			} else if (user == null && !sessionCode.toLowerCase().equals(code.toLowerCase())) {
 				state = 2;
 				msg = "验证码错误！";
 			} else if (user != null) {
