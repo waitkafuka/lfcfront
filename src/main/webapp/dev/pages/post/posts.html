@@ -1,12 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	@@include('../../include/css.html')
-	<link rel="stylesheet" href="../../iconfont/iconfont.css" />
-	<link rel="stylesheet" href="../../css/posts.css" />
-	@@include('../../include/js.html')	
-	<script type="text/javascript" src="../../js/post/posts.js" ></script>
-	<script type="text/javascript" src="../../js/lib/jquery.pagination.min.js" ></script>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=8" />  
+	<meta name=renderer content=webkit>
+	<meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+	<title>陆鹰前端社区</title>
+	<link rel="stylesheet" type="text/css" href="../css/reset.css?!">
+	<link rel="stylesheet" type="text/css" href="../css/style.css?!">
+	<link rel="stylesheet" type="text/css" href="../iconfont/iconfont.css">
+	<script type="text/javascript" src="../js/jquery.min.js"></script>
+	<script src="../js/jquery.movebg.js"></script>
+	<script src="../js/lib/handlebars.js"></script>
+	<script src="../js/lib/mock.js"></script>
+	<script src="../js/arcinfo.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
 			$(".nav,.nav_submenu,.move-bg").movebg({
@@ -28,64 +36,76 @@
 			});
 		});
 	</script>
-	<!--[if IE 6]>
-		<style type="text/css">
-			html{overflow:hidden}
-			body{height:100%;overflow:auto}
-			.nav_fixed{position:absolute;left:0px;}
-		</style>
-	<![endif]-->
 </head>
 <body>
-	@@include('../../include/header.html')
+	
+	<!-- 头部 -->
+	<div class="header">
+		<span>陆鹰前端社区</span>
+	</div>
+	<!-- 导航 -->
+	<div class="nav_nav1" id="fixed">
+		<div class="nav_nav">
+			<div class="nav" id="fixed">
+		        <ul class="nav_list">
+		            <li class="nav-item cur"><a href="index.html">网站首页</a></li>
+		            <li class="nav-item"><a href="#">干货分享</a></li>
+		            <li class="nav-item"><a href="#">API速查<i class="iconfont icon-jiantouxia"></i></a>
+						<div class="nav_submenu">
+							<dl>
+								<dd><a href="#">Jquery</a></dd>
+								<dd><a href="#">Javascript</a></dd>
+								<dd><a href="#">Css3</a></dd>
+								<dd><a href="#">Html5</a></dd>
+							</dl>
+						</div>
+		            </li>
+		            <li class="nav-item"><a href="#">在线工具<i class="iconfont icon-jiantouxia"></i></a>
+						<div class="nav_submenu">
+							<dl>
+								<dd><a href="#">子栏目</a></dd>
+								<dd><a href="#">子栏目</a></dd>
+								<dd><a href="#">子栏目</a></dd>
+								<dd><a href="#">子栏目</a></dd>
+							</dl>
+						</div>
+		            </li> 
+		            <li class="nav-item"><a href="#">微商城组件</a></li> 
+		            <li class="nav-item"><a href="#">常用插件<i class="iconfont icon-jiantouxia"></i></a>
+						<div class="nav_submenu">
+							<dl>
+								<dd><a href="#">子栏目</a></dd>
+								<dd><a href="#">子栏目</a></dd>
+								<dd><a href="#">子栏目</a></dd>
+								<dd><a href="#">子栏目</a></dd>
+							</dl>
+						</div>
+		            </li>
+		            <li class="nav-item"><a href="#">发帖</a></li>
+		        </ul>
+		        <!--移动的滑动-->
+		        <div class="move-bg"></div>
+
+			</div>
+		</div>
+	</div>
+	
 	<!-- 内容 -->
 	<div class="content">
-
 		<!-- 左 -->
 		<div class="content_left">
-			<!-- 搜索列表 -->
-			<div class="search">
-				<img src="../../img/author.png">
-				<p class="posts_author">骆一鸣</p>
-				<span><i class="iconfont icon-wenzhang"></i> 共 19 篇文章</span>
-			</div>
 			
-			<!-- 标签列表 -->
-			<!-- <div class="search tag">
-				<p>标签：Laravel4</p>
-				<span><i class="iconfont icon-wenzhang"></i> 共 3 篇文章</span>
-			</div> -->
-
 			<div class="arc_list">
-				<h1><a href="arc_info.html" title="" class="posts_title">85微商城双旦活动设计源文件及H5页面</a></h1>
-				<span>作者：<a href="#" class="posts_author">骆一鸣</a>   时间：<a class="posts_time">2015年1月27日</a></span>
-				<div><img src="../../img/photo.jpg"></div>
-				<p class="posts_content">本站的各项电子服务的所有权和运作权归本站。本站提供的服务将完全按照其发布的服务条款和操作规则严格执行。您同意所有本站发布的服务条款和操作规则的约定</p>
-				<button><a href="arc_info.html">查看更多</a></button>
+				<!--此处handlebars插入文章详情部分-->
 			</div>
-
-			<div class="arc_list">
-				<h1><a href="arc_info.html" title="" class="posts_title">85微商城双旦活动设计源文件及H5页面</a></h1>
-				<span>作者：<a href="#" class="posts_author">骆一鸣</a>   时间：<a class="posts_time">2015年1月27日</a></span>
-				<div>
-					<div class="down_link">
-						<h2>下载地址：</h2>
-						<p><a href="#">MY SQL中文版下载地址（1月27日更新）</a></p>
-					</div>
-				</div>
-				<p class="posts_content">本站的各项电子服务的所有权和运作权归本站。本站提供的服务将完全按照其发布的服务条款和操作规则严格执行。您同意所有本站发布的服务条款和操作规则的约定</p>
-				<button><a href="arc_info.html">查看更多</a></button>
+			<div class="author">
+				<!--此处handbars插入作者信息及其评论-->
 			</div>
-
-			<div class="arc_list">
-				<h1><a href="arc_info.html" title=""class="posts_title">85微商城双旦活动设计源文件及H5页面</a></h1>
-				<span>作者：<a href="#" class="posts_author">骆一鸣</a>   时间：<a class="posts_time">2015年1月27日</a></span>
-				<div></div>
-				<p class="posts_content">本站的各项电子服务的所有权和运作权归本站。本站提供的服务将完全按照其发布的服务条款和操作规则严格执行。您同意所有本站发布的服务条款和操作规则的约定</p>
-				<button><a href="arc_info.html">查看更多</a></button>
-			</div>
-	
-			<div class="pagelist">			
+			<div class="nextPage">
+				<ul>
+					<li>上一篇：<a href="#">有详细的信息被披露出来</a></li>
+					<li>下一篇：<a href="#">有详细的信息被披露出来，这必定有详细的信息被披露出来，这必定</a></li>
+				</ul>
 			</div>
 
 		</div>
@@ -142,8 +162,124 @@
 		</div>
 	</div>
 	
-@@include('../../include/footer.html')
+	<!-- 底部 -->
+	<div class="footer">
+		
+		<div class="footer_top">
+			<div class="ft_left">
+				<div class="news_right ft_none">
+					<div class="news_right_title color_fff">动态</div>
+					<span style="left:0;"></span>
+					<div class="news_right_list ft_border">	
+						<ul>
+							<li>
+								<a href="#">请问larave权限管理怎么做！在线急等在权限管理怎么做！在线急等在线急等</a>
+								<p>2016年02月02日</p>
+							</li>
+							<li>
+								<a href="#">请问larave权限管理怎么做！在线急等</a>
+								<p>2016年02月02日</p>
+							</li>
+							<li>
+								<a href="#">请问larave权限管理怎么做！在线急等</a>
+								<p>2016年02月02日</p>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="ft_mid">
+				<div class="news_right ft_none">
+					<div class="news_right_title color_fff">标签</div>
+					<span style="left:0;"></span>
+					<div class="news_right_list ft_border">	
+						<dl>
+							<dt></dt>
+							<dd><a href="#">权限管理</a></dd>
+							<dd><a href="#">设计源文件</a></dd>
+							<dd><a href="#">权限</a></dd>
+							<dd><a href="#">双旦活动</a></dd>
+							<dd><a href="#">2015年1月27日</a></dd>
+							<dd><a href="#">设计源文件</a></dd>
+							<dd><a href="#">权限</a></dd>
+							<dd><a href="#">双旦活动</a></dd>
+							<dd><a href="#">2015年1月27日</a></dd>
+						</dl>
+					</div>
+				</div>
+			</div>
+			<div class="ft_right">
+				<div class="news_right ft_none">
+					<div class="news_right_title color_fff">合作伙伴</div>
+					<span style="left:0;"></span>
+					<div class="news_right_list ft_no_border">	
+						<dl>
+							<dt></dt>
+							<dd><a href="#">中国移动通信</a></dd>
+							<dd><a href="#">中移在线股份有限公司</a></dd>
+							<dd><a href="#">商城</a></dd>
+							<dd><a href="#">中国移动通信</a></dd>
+							<dd><a href="#">中移在线</a></dd>
+						</dl>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer_bottom">版权所有 10085</div>
 
+	</div>
+	
+	<!-- 返回顶部 -->
+	<script type="text/javascript" src="../js/backtop.js"></script>
+	<!-- 导航跟随固定 --> 
+	<script type="text/javascript">
+		var offs=$('#fixed').offset();
+		$(window).scroll(function(){
+			scrollLis();
+		});
 
+		// 分享
+		window._bd_share_config= {
+		"common"
+			:{"bdSnsKey": {
+		},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"
+		},"share": {
+		}};
+		with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+	</script>
+	
+	<!--改用handbars模板添加文章详情部分数据-->
+	<script id="arclist" type="text/x-handlebars-template">
+		<h1><a href="#" title=""></a>{{postId.title}}</h1>
+		<span>作者：<a href="search.html">{{this.postId.author}}</a>&nbsp;<i style="font-style: normal;">{{time}}</i></span>
+		<div><img src="../images/photo.jpg"></div>
+		<p style="text-indent: 2em;">{{this.postId.content}}</p>
+		<div class="bdsharebuttonbox">
+			<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+			<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+			<a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+			<a href="#" class="bds_youdao" data-cmd="youdao" title="分享到有道云笔记"></a>
+			<a href="#" class="bds_fx" data-cmd="fx" title="分享到飞信"></a>
+		</div>
+		<div class="tag">
+			<i class="iconfont icon-biaoqian"></i>
+			<a href="#">规则</a>
+			<a href="#">产品和代码</a>
+			<a href="#">各项电子服务</a>
+		</div>
+	</script>
+	<script id="author" type="text/x-handlebars-template">
+			<a href="#"><img src="../images/author.png"></a>
+			{{#with postId.comments}}
+				{{#with this.commentsList}}
+					{{#each this}}
+						<div class="author_info">
+							<span><a href="search.html">{{this.c_author}}</a></span>
+							<p>{{this.comment}}</p>
+						</div>
+					{{/each}}
+				{{/with}}
+			{{/with}}
+	</script>
 </body>
 </html>
