@@ -31,6 +31,7 @@ $(document).ready(function() {
 			if (r != null)
 				return unescape(r[2]);
 			return null;
-		}
+		},
+		apiPrefix : "http://localhost:8080/lfcfront"
 	});
 });

@@ -10,6 +10,7 @@
 <title>陆鹰前端社区</title>
 <link rel="stylesheet" type="text/css" href="../../css/reset.css">
 <link rel="stylesheet" type="text/css" href="../../css/style.css">
+	<link rel="stylesheet" type="text/css" href="../../css/posts.css">
 <link rel="stylesheet" type="text/css"
 	href="../../iconfont/iconfont.css">
 </head>
@@ -29,7 +30,7 @@
 							class="iconfont icon-jiantouxia"></i></a>
 						<div class="nav_submenu">
 							<dl>
-								<dd>
+								<dd>你是哪个页面？
 									<a href="http://www.css88.com/jqapi-1.9" target="_blank">Jquery</a>
 								</dd>
 								<dd>
@@ -115,70 +116,12 @@
 		<div class="content_left">
 
 			<div class="arc_list">
-				<h1>
-					<a href="arc_info.html" title="">85微商城双旦活动设计源文件及H5页面</a>
-				</h1>
-				<span>作者：<a href="search.html">骆一鸣</a> 时间：2015年1月27日
-				</span>
-				<div>
-					<img src="../../img/photo.jpg">
-				</div>
-				<p>本站的各项电子服务的所有权和运作权归本站。本站提供的服务将完全按照其发布的服务条款和操作规则严格执行。您同意所有本站发布的服务条款和操作规则的约定</p>
-				<button>
-					<a href="arc_info.html">查看更多</a>
-				</button>
-				<button class="deletes">删除</button>
 
-			</div>
 
-			<div class="arc_list">
-				<h1>
-					<a href="arc_info.html" title="">85微商城双旦活动设计源文件及H5页面</a>
-				</h1>
-				<span>作者：<a href="search.html">骆一鸣</a> 时间：2015年1月27日
-				</span>
-				<div>
-					<div class="down_link">
-						<h2>下载地址：</h2>
-						<p>
-							<a href="#">MY SQL中文版下载地址（1月27日更新）</a>
-						</p>
-					</div>
-				</div>
-				<p>本站的各项电子服务的所有权和运作权归本站。本站提供的服务将完全按照其发布的服务条款和操作规则严格执行。您同意所有本站发布的服务条款和操作规则的约定</p>
-				<button>
-					<a href="arc_info.html">查看更多</a>
-				</button>
-			</div>
-
-			<div class="arc_list">
-				<h1>
-					<a href="arc_info.html" title="">85微商城双旦活动设计源文件及H5页面</a>
-				</h1>
-				<span>作者：<a href="search.html">骆一鸣</a> 时间：2015年1月27日
-				</span>
-				<div></div>
-				<p>本站的各项电子服务的所有权和运作权归本站。本站提供的服务将完全按照其发布的服务条款和操作规则严格执行。您同意所有本站发布的服务条款和操作规则的约定</p>
-				<button>
-					<a href="arc_info.html">查看更多</a>
-				</button>
 			</div>
 
 			<div class="pagelist">
-				<ul>
-					<li><a href="#" title="首页">首页</a></li>
-					<li><a href="#" title="上一页"><i
-							class="iconfont icon-iconfonti2-copy"></i></a></li>
-					<li class="cur"><a href="#" title="1">1</a></li>
-					<li><a href="#" title="2">2</a></li>
-					<li><a href="#" title="3">3</a></li>
-					<li><a href="#" title="4">4</a></li>
-					<li><a href="#" title="5">5</a></li>
-					<li><a href="#" title="更多">...</a></li>
-					<li><a href="#" title="下一页"><i
-							class="iconfont icon-iconfonti2"></i></a></li>
-					<li><a href="#" title="尾页">尾页</a></li>
-				</ul>
+
 			</div>
 
 		</div>
@@ -351,33 +294,65 @@
 <script src="../../js/common/global.js"></script>
 <script src="../../js/lib/handlebars.js"></script>
 <script type="text/javascript" src="../../js/lib/jquery-backtop.js"></script>
+	<script src="../../js/lib/handlebars.js"></script>
+	<script id="artList" type="text/x-handlebars-template">
+
+		{{#each this}}
+		<div style="margin-Top:10px;">
+		<h1>
+			<a href="arc_info.html" title="">{{this.title}}</a>
+		</h1>
+		<span>作者：<a href="search.html">{{this.author}}</a> 时间：{{ prettifyDate this.time}}
+				</span>
+		<div>
+			<div class="down_link">
+				<h2>下载地址：</h2>
+				<p>
+					<a href="#">MY SQL中文版下载地址（1月27日更新）</a>
+				</p>
+			</div>
+		</div>
+		<div>
+			<img src="{{ getImg this.content }}" >
+		</div>
+		<p style="min-height:250px;">
+			{{ getText this.content}}
+		</p>
+		<button>
+			<a href="arc_info.html?id={{this.id}}">查看更多</a>
+		</button>
+		<button class="delBtn"   >删除</button>
+		</div>
+		{{/each}}
+	</script>
+	<script src="../../js/lib/jquery.pagination.js"></script>
 	<script type="text/javascript" src="../../js/post/index.js"></script>
 	<script type="text/javascript" src="../../js/tag/tag.js"></script>
-	<script type="text/javascript">
-		$(document).ready(function() {
-			var offs = $('#fixed').offset();
-			$(window).scroll(function() {
-				scrollLis();
-			});
-			$(".nav,.nav_submenu,.move-bg").movebg({
-				width : 120/*滑块的大小*/,
-				extra : 20/*额外反弹的距离*/,
-				speed : 300/*滑块移动的速度*/,
-				rebound_speed : 400
-			/*滑块反弹的速度*/
-			});
-			// 导航点击切换
-			$(".nav_list li").click(function() {
-				$(this).addClass("cur").siblings().removeClass("cur");
-			});
-			// 鼠标经过下拉
-			$(".nav li").mouseover(function() {
-				$(this).children(".nav_submenu").show();
-			});
-			$(".nav li").mouseout(function() {
-				$(this).children(".nav_submenu").hide();
-			});
-		});
-	</script>
+	<!--<script type="text/javascript">-->
+		<!--$(document).ready(function() {-->
+			<!--var offs = $('#fixed').offset();-->
+			<!--$(window).scroll(function() {-->
+				<!--scrollLis();-->
+			<!--});-->
+			<!--$(".nav,.nav_submenu,.move-bg").movebg({-->
+				<!--width : 120/*滑块的大小*/,-->
+				<!--extra : 20/*额外反弹的距离*/,-->
+				<!--speed : 300/*滑块移动的速度*/,-->
+				<!--rebound_speed : 400-->
+			<!--/*滑块反弹的速度*/-->
+			<!--});-->
+			<!--// 导航点击切换-->
+			<!--$(".nav_list li").click(function() {-->
+				<!--$(this).addClass("cur").siblings().removeClass("cur");-->
+			<!--});-->
+			<!--// 鼠标经过下拉-->
+			<!--$(".nav li").mouseover(function() {-->
+				<!--$(this).children(".nav_submenu").show();-->
+			<!--});-->
+			<!--$(".nav li").mouseout(function() {-->
+				<!--$(this).children(".nav_submenu").hide();-->
+			<!--});-->
+		<!--});-->
+	<!--</script>-->
 </body>
 </html>
